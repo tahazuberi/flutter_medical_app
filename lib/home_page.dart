@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medical_app/doctor_profile.dart';
 import 'package:medical_app/profile_screen.dart';
+import 'package:medical_app/services.dart';
 import 'package:medical_app/submit_screen.dart';
 
 import 'main.dart';
@@ -84,9 +86,12 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 25,),
 
 
-                    const Padding(
+                     Padding(
                       padding: EdgeInsets.only(right: 210.0,bottom: 15),
-                      child: Text("My Profile",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black87),),
+                      child: GestureDetector(
+                          onTap:() {Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorProfile()));},
+                          child: Text("My Profile",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black87))
+                      ),
                     ),
                     SizedBox(width: 300,height: 2,child:Container(height: 2,width:300 ,color: Colors.black12,),),
                     const SizedBox(height: 25,),
@@ -201,6 +206,7 @@ class HomePage extends StatelessWidget {
                             decoration: const InputDecoration(
                               hintText: "Enter Service Here",
                               labelText: "Select Service",
+                              prefixIcon: Icon(Icons.search)
                             ),
                           ),
 
@@ -236,7 +242,7 @@ class HomePage extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context)=> const MyApp()
+                                        builder: (context)=> const ServicePage()
                                     )
                                 );
                               },
