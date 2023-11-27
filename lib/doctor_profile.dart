@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'appointment.dart';
+
 class DoctorProfile extends StatelessWidget {
    DoctorProfile({super.key});
 
@@ -178,10 +180,76 @@ class DoctorProfile extends StatelessWidget {
                     zoom: 11.0
                   ),
               ),
-            )
+            ),
 
 
+            Padding(
+              padding: const EdgeInsets.only(right: 290.0,top: 28),
+              child: Text(
+                "Reviews",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
 
+
+            Padding(
+              padding: const EdgeInsets.only(right: 290.0,top: 10),
+              child: Text(
+                "Ratings",
+                style: TextStyle(fontWeight: FontWeight.w300),
+              ),
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      "4.18",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(right: 25),
+                    height: 30,
+                    width: 120,
+                    child: Row(
+                      children: [
+                        Icon(Icons.star,size: 20,),
+                        Icon(Icons.star,size: 25,),
+                        Icon(Icons.star,size: 25,),
+                        Icon(Icons.star,size: 25,),
+                        Icon(Icons.star,size: 25,),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.yellow,
+
+              ),
+              margin: EdgeInsets.only(left: 5,top: 10,bottom: 3),
+              height: 50,
+              width: 350,
+              child: Center(
+                child: GestureDetector(
+                  onTap:() {Navigator.push(context, MaterialPageRoute(builder: (context)=>Appointment()));},
+                  child: Text(
+                      "Book Appointment"
+                  ),
+                ),
+              ),
+            ),
 
 
 
